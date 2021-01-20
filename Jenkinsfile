@@ -20,21 +20,11 @@ spec:
 
     stages {
         
-		stage('SCM Checkout') {
-            steps {
-                
-                
-                    git branch: 'master', credentialsId: 'git_creds', url: 'https://github.com/sdgcpsb/Hybris.git'
-                    sh 'pwd'
-            }   
-        }
-        
-		stage('Build') {
+	stage('Build') {
             steps {
 			
-				container('hybris') {
-                
-                
+		container('hybris') {
+			
                     sh '''
                         #!/bin/bash
                         java -version
@@ -50,10 +40,9 @@ spec:
             }   
         }
 		
-		stage('Unit Test') {
+	stage('Unit Test') {
             steps {
-			
-				container('hybris') {
+		container('hybris') {
 
                     sh '''
 
@@ -65,7 +54,7 @@ spec:
             }   
         }
 		
-		stage('Sonarqube') {
+	stage('Sonarqube') {
             environment {
                 scannerHome = tool 'Sonarqube'
             }
