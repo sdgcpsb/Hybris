@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- INPUTS
+	signetBaseDir
+	buildKey
+	sonarAntTaskPath
+-->
+<project name="Hybris_test" default="sonar" xmlns:sonar="antlib:org.sonar.ant">
+ 
+ 
+    <property name="sonar.projectKey" value="org.codehaus.sonar:example-java-ant" />
+    <property name="sonar.projectName" value="Hybris Java Project analyzed with the Sonar Ant Task" />
+	<property name="sonar.language" value="java" />
+	<property name="sonar.host.url" value="https://sonarqube.sgn.devops.accentureanalytics.com/" />
+    <property name="sonar.sources" value="src" />
+   <!-- <property name="sonar.binaries" value="classes" />-->
+    <property name="sonar.forceAnalysis" value="true" />
+
+ 
+	<!-- Define the Sonar target --> 
+    <target name="sonar">
+        <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+            <!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+        	<classpath path="/hybris-commerce-suite/hybris/bin/platform/resources/ant/sonar/lib/sonarqube-ant-task-2.5.jar" />
+        </taskdef>
+ 
+        <!-- Execute Sonar -->
+        <sonar:sonar />
+    </target>
+</project>
