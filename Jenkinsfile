@@ -31,7 +31,8 @@ spec:
                         pwd
                         
                         mkdir -p /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
-                        cp -R /home/jenkins/agent/workspace/Sandbox/Hybris_Test_AIP/bin/custom/training/trainingstorefront/ /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
+			sh 'echo workspace is $WORKSPACE'
+                        cp -R $WORKSPACE/bin/custom/training/trainingstorefront/ /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
                         ant server -Dinput.template=develop
