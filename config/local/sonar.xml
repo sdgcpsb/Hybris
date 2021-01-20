@@ -1,12 +1,11 @@
 <!-- build.xml -->
 <project name="My Project" default="all" basedir="." xmlns:sonar="antlib:org.sonar.ant">
-...
+
   
 <!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
 <property name="sonar.host.url" value="https://sonarqube.sgn.devops.accentureanalytics.com" />
  
-...
-  
+
 <!-- Define the SonarQube project properties -->
 <property name="sonar.projectKey" value="org.sonarqube:sonarqube-scanner-ant" />
 <property name="sonar.projectName" value="Example of SonarScanner for Ant Usage" />
@@ -14,7 +13,7 @@
 <property name="sonar.sources" value="src" />
 <property name="sonar.java.binaries" value="build" />
 <property name="sonar.java.libraries" value="lib/*.jar" />
-...
+
  
 <!-- Define SonarScanner for Ant Target -->
 <target name="sonar">
