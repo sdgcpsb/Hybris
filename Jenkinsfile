@@ -33,6 +33,7 @@ spec:
                         mkdir -p /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 			
                         cp -R /$WORKSPACE/bin/custom/training/trainingstorefront/ /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
+			sh "ls -la ${pwd()}"
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
                         ant server -Dinput.template=develop
