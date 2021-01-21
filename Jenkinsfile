@@ -2,21 +2,21 @@ pipeline {
         agent {
         kubernetes {
             yaml '''
-		apiVersion: v1
-		kind: Pod
-		spec:
-  		containers:
-  			- name: hybris
-    			image: signet/hybris-ant:6.6.0.15_3.0.3-UAT
-    			command: 
-    			- /bin/bash
-    			tty: true	
-		'''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: hybris
+    image: signet/hybris-ant:6.6.0.15_3.0.3-UAT
+    command: 
+    - /bin/bash
+    tty: true	
+'''
             label 'sample-java-app'
             idleMinutes 10
             defaultContainer 'jnlp'
         }
-    }    
+    }   
 
     stages {
         
@@ -72,7 +72,7 @@ pipeline {
             }
         }
 	stage('Deploy Dev') {
-		when { branch 'dev'}
+		when { branch 'develop'}
             		steps {
 				echo "I am executing Deploy to target dev environment."
 				echo "Work in progress"
@@ -80,7 +80,7 @@ pipeline {
         	}
 
 	stage('Smoke Test'){
-		when { branch 'dev'}
+		when { branch 'develop'}
 			steps {
 				
 				echo "I am executing Smoke Test on target dev environment post deployment"
