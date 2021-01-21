@@ -68,6 +68,24 @@ spec:
             }
         }
 	
+	stage('Deploy Dev') {
+		when { branch 'develop'}
+            		steps {
+				echo "I am executing Deploy to target dev environment."
+				echo "Work in progress"
+            		}
+        	}
+
+	stage('Smoke Test'){
+		when { branch 'develop'}
+			steps {
+				
+				echo "I am executing Smoke Test on target dev environment post deployment"
+				echo 'Work in progress'
+				
+			}
+	}
+	
 		
 	}
 }
