@@ -73,6 +73,7 @@ spec:
                     		'''
                 	}
                 	timeout(time: 10, unit: 'MINUTES') {
+				sleep(60)
                 		waitForQualityGate abortPipeline: true
                 	}
 		}
