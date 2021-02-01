@@ -79,8 +79,8 @@ spec:
 		}
             }
         }
-	stage('Deploy Dev') {
-		when { branch 'develop'}
+	stage('Deploy') {
+		when { anyOf { branch 'develop'; branch 'release*' } }
             		steps {
 				echo "I am executing Deploy to target dev environment."
 				echo "Work in progress"
@@ -88,7 +88,7 @@ spec:
         	}
 
 	stage('Smoke Test'){
-		when { branch 'develop'}
+		when { anyOf { branch 'develop'; branch 'release*' } }
 			steps {
 				
 				echo "I am executing Smoke Test on target dev environment post deployment"
