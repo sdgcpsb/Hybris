@@ -80,7 +80,7 @@ spec:
             }
         }
 	stage('Deploy Dev') {
-		when { branch 'develop','release*'}
+		when { anyOf { branch 'develop'; branch 'release*' } }
             		steps {
 				echo "I am executing Deploy to target dev environment."
 				echo "Work in progress"
