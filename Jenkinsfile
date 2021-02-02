@@ -62,7 +62,7 @@ spec:
             }   
         }
 		
-	stage('Sonarqube') {
+	stage('Code Quality') {
             environment {
                 scannerHome = tool 'Sonarqube'
             }
