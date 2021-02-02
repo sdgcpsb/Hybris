@@ -138,9 +138,9 @@ spec:
 		}
 	}    
   }
-  /* post {
+  post {
         failure {
-            mail bcc: '', 
+            /*mail bcc: '', 
             	 body: "<b>Example</b><br>\n<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", 
             	 cc: '', 
             	 charset: 'UTF-8', 
@@ -148,7 +148,11 @@ spec:
             	 mimeType: 'text/html', 
             	 replyTo: '', 
             	 subject: "ERROR CI: Project name -> ${env.JOB_NAME}", 
-            	 to: "foo@foomail.com";
+            	 to: "foo@foomail.com";*/
+		echo 'I am sending a notification with failure'
         }
-    } */
+	success {
+		echo 'I am sending a notification with success'
+	}
+   }
 }
