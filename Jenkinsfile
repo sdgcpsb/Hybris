@@ -76,9 +76,9 @@ spec:
 				sleep(60)
                 		waitForQualityGate abortPipeline: true
                 	}
-		} */
+		} 
             }
-        } 
+        } */
 	
 
    }
