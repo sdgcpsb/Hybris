@@ -59,10 +59,10 @@ spec:
                         ant unittests
                     '''
 			jacoco( 
-			      execPattern: 'target/*.exec',
-			      classPattern: 'target/classes',
-			      sourcePattern: 'src/main/java',
-			      exclusionPattern: 'src/test*'
+			      execPattern: '**/*.exec',
+			      classPattern: '**/classes',
+			      sourcePattern: '**/java',
+			      exclusionPattern: '**/test*'
 			)
                  } 
             }   
