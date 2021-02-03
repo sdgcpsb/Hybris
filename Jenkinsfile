@@ -137,7 +137,7 @@ spec:
 			}
 		}
 	}    
-  }
+  
   post {
         failure {
             /*mail bcc: '', 
@@ -155,3 +155,4 @@ spec:
 		echo 'I am sending a notification with success'
 	}
    }
+}
