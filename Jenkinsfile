@@ -60,8 +60,8 @@ spec:
                     '''
 			jacoco( 
 			      execPattern: '**/*.exec',
-			      classPattern: '**/classes',
-			      sourcePattern: '**/java',
+			      classPattern: '**/*.class',
+			      sourcePattern: '**/*.java',
 			      exclusionPattern: '**/test*'
 			)
                  } 
