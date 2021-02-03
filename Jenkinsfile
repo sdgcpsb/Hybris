@@ -78,9 +78,9 @@ spec:
                 	}
 		}
             }
-        }
+        } 
 	
-	stage('Deploy') {
+	/*  stage('Deploy') {
 		when { anyOf { branch 'develop'; branch 'release*' } }
             		steps {
 				echo "I am executing Deploy to target dev environment."
@@ -130,7 +130,7 @@ spec:
 				exit */
 				}
 			
-			stage('Security Test') {
+			/* stage('Security Test') {
 				steps {
 					echo 'I am running Security Test here'
 				}
@@ -149,10 +149,10 @@ spec:
             	 replyTo: '', 
             	 subject: "ERROR CI: Project name -> ${env.JOB_NAME}", 
             	 to: "foo@foomail.com";*/
-		echo 'I am sending a notification with failure'
+	/*	echo 'I am sending a notification with failure'
         }
 	success {
 		echo 'I am sending a notification with success'
-	}
+	} */
    }
 }
