@@ -42,9 +42,9 @@ spec:
 			ls
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
-                        ant clean 
-			ant customize 
-			ant build
+                        ant clean -Dinput.template=develop
+			ant customize -Dinput.template=develop
+			ant build -Dinput.template=develop
 			ant production -Dproduction.legacy.mode=true -Dproduction.include.tomcat=true
                     '''
                  } 
