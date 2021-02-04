@@ -42,7 +42,7 @@ spec:
 			ls
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
-                        ant server -Dinput.template=develop
+                        ant clean customize all -Dinput.template=develop
                     '''
                  } 
             }   
