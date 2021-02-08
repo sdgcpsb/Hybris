@@ -148,7 +148,7 @@ module.exports = function(grunt) {
 	// grunt.registerTask('default', ['less', 'sync']);
 
 	// Configure Grunt with FED customizations
-	require('./web/webroot/WEB-INF/_ui-src/responsive/custom/grunt/fed-grunt-customizer')(grunt);
+	//require('./web/webroot/WEB-INF/_ui-src/responsive/custom/grunt/fed-grunt-customizer')(grunt);
 
 	// First run our test task, then our build task, and then our watch task
 	//grunt.registerTask('default', ['test', 'build', 'watch']);
