@@ -145,13 +145,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify-es');
 	
 	// Default task(s). (this is the hybris default grunt task)
-	// grunt.registerTask('default', ['less', 'sync']);
+	grunt.registerTask('default', ['less', 'sync']);
 
 	// Configure Grunt with FED customizations
 	//require('./web/webroot/WEB-INF/_ui-src/responsive/custom/grunt/fed-grunt-customizer')(grunt);
 
 	// First run our test task, then our build task, and then our watch task
 	//grunt.registerTask('default', ['test', 'build', 'watch']);
-	grunt.registerTask('default',['build']);
+	//grunt.registerTask('default',['build']);
 
 };
