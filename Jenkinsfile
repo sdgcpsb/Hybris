@@ -55,8 +55,8 @@ spec:
 		    nodejs(nodeJSInstallationName: 'Node') {
                     npm install
 		    grunt
+		    }
 		    '''
-           	    }
                  } 
             }   
         }
