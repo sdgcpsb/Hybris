@@ -53,7 +53,7 @@ spec:
 		    
 		    nodejs(nodeJSInstallationName: 'Node') {
 			sh '''
-				cd /$WORKSPACE/bin/custom/training/trainingstorefront/
+				cd /$WORKSPACE/bin/custom/training/trainingstorefront/web/
 				pwd
                    		npm install -g grunt-cli
 				npm install grunt --save-dev
