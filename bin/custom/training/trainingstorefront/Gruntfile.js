@@ -152,6 +152,6 @@ module.exports = function(grunt) {
 
 	// First run our test task, then our build task, and then our watch task
 	//grunt.registerTask('default', ['test', 'build', 'watch']);
-	grunt.registerTask('default',['test', 'build']);
+	grunt.registerTask('default',['build']);
 
 };
