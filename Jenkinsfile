@@ -23,7 +23,7 @@ spec:
         }
     }  
 	
-	tools {nodejs "Node"}
+	//tools {nodejs "Node"}
 
     stages {
         
@@ -48,7 +48,11 @@ spec:
 			
 			cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
             		echo "Performing npm build..."
-            		npm install
+			
+			nodejs(nodeJSInstallationName: 'Node') {
+                		sh 'npm install'
+            		}
+            		
        			}
                     '''
                  } 
