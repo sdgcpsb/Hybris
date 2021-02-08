@@ -52,10 +52,12 @@ spec:
 		    echo "Performing npm build..."
 		    
 		    nodejs(nodeJSInstallationName: 'Node') {
-			sh'pwd'
-			sh 'cd /$WORKSPACE/bin/custom/training/trainingstorefront/'
-                   	sh 'npm install'
-		    	sh 'grunt'
+			sh '''
+				cd /$WORKSPACE/bin/custom/training/trainingstorefront/
+				pwd
+                   		npm install
+		    		grunt
+			'''
 		    }
 		   
                  } 
