@@ -55,7 +55,8 @@ spec:
 			sh '''
 				cd /$WORKSPACE/bin/custom/training/trainingstorefront/
 				pwd
-                   		npm install
+                   		npm install -g grunt-cli
+				npm install grunt --save-dev
 				grunt
 		    		
 			'''
