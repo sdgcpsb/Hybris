@@ -23,7 +23,7 @@ spec:
         }
     }  
 	
-	tools {nodejs "Node"}
+	//tools {nodejs "Node"}
 
     stages {
         
@@ -47,14 +47,12 @@ spec:
                         ant customize clean build -Dinput.template=develop
 			
 			cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
-            		echo "Performing npm build..."
-			
-			
-                	npm install
             		
-            		
-       			}
                     '''
+		    echo "Performing npm build...
+		    nodejs(nodeJSInstallationName: 'Node') {
+                	sh 'npm install'
+           	    }
                  } 
             }   
         }
