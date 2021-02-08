@@ -4,7 +4,11 @@
   "description": "For maintain and scan deliverable JS Libraries of the accelerator",
   "devDependencies": {
     "less-rhino" : "^1.7.3",
-    "lessc-rhino" : "^1.7.3"
+    "lessc-rhino" : "^1.7.3" 
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "grunt"
   },
   "dependencies": {
     "enquire" : "2.1.2",
