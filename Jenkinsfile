@@ -53,7 +53,7 @@ spec:
 		    
 		    nodejs(nodeJSInstallationName: 'Node') {
 			sh'pwd'
-			sh 'cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/'
+			sh 'cd /$WORKSPACE/bin/custom/training/trainingstorefront/'
                    	sh 'npm install'
 		    	sh 'grunt'
 		    }
