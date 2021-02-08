@@ -52,8 +52,9 @@ spec:
 		    echo "Performing npm build..."
 		    sh 'cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/'
 		    nodejs(nodeJSInstallationName: 'Node') {
-                   		npm install
-		    		grunt
+			    
+                   	sh 'npm install'
+		    	sh 'grunt'
 		    }
 		   
                  } 
