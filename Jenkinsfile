@@ -21,7 +21,9 @@ spec:
             idleMinutes 10
             defaultContainer 'jnlp'
         }
-    }   
+    }  
+	
+tools {nodejs "Node"}
 
     stages {
         
@@ -45,10 +47,8 @@ spec:
                         ant customize clean build -Dinput.template=develop
 			
 			cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
-			
-			withNPM(npmrcConfig:'Node') {
-            			echo "Performing npm build..."
-            			sh 'npm install'
+            		echo "Performing npm build..."
+            		npm install
        			}
                     '''
                  } 
