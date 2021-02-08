@@ -44,10 +44,12 @@ spec:
                         . ./setantenv.sh
                         ant customize clean build -Dinput.template=develop
 			
-			echo "Running npm/grunt"
 			cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
-			npm install
-			grunt
+			
+			withNPM(npmrcConfig:'Node') {
+            			echo "Performing npm build..."
+            			sh 'npm install'
+       			}
                     '''
                  } 
             }   
