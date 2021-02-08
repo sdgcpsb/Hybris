@@ -58,6 +58,8 @@ spec:
                    		npm install -g grunt-cli
 				npm install grunt --save-dev
 				npm install grunt-contrib-less --save-dev
+				npm install grunt-contrib-watch --save-dev
+				npm install grunt-sync --save-dev
 				grunt
 		    		
 			'''
