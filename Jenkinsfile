@@ -57,6 +57,7 @@ spec:
 				pwd
                    		npm install -g grunt-cli
 				npm install grunt --save-dev
+				npm install grunt-contrib-less --save-dev
 				grunt
 		    		
 			'''
