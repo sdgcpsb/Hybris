@@ -43,6 +43,11 @@ spec:
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
                         ant customize clean build -Dinput.template=develop
+			
+			echo "Running npm/grunt"
+			cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
+			npm install
+			grunt
                     '''
                  } 
             }   
