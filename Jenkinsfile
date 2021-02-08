@@ -56,7 +56,7 @@ spec:
 				cd /$WORKSPACE/bin/custom/training/trainingstorefront/
 				pwd
                    		npm install
-		    		grunt
+		    		
 			'''
 		    }
 		   
