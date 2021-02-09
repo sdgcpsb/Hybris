@@ -44,6 +44,8 @@ spec:
 			ls
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
+			#ant addonuninstall -Daddonnames=assistedservicestorefront,smarteditaddon,captchaaddon,profiletagaddon -DaddonStorefront.yacceleratorstorefront=signetstorefront
+			#ant addoninstall -Daddonnames=assistedservicestorefront,smarteditaddon,captchaaddon,profiletagaddon -DaddonStorefront.yacceleratorstorefront=signetstorefront
                         ant customize clean build -Dinput.template=develop
 			
 			
