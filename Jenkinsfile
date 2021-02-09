@@ -78,6 +78,14 @@ spec:
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
                         ant unittests
+			
+			jacoco( 
+			      execPattern: '**/*.exec',
+			      classPattern: '**/*.class',
+			      sourcePattern: '**/*.java',
+			      exclusionPattern: '**/test*'
+			)
+			
                     '''
                  } 
             }   
