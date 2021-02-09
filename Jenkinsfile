@@ -79,6 +79,8 @@ spec:
                         . ./setantenv.sh
                         ant unittests
 			
+			'''
+			
 			jacoco( 
 			      execPattern: '**/*.exec',
 			      classPattern: '**/*.class',
@@ -86,7 +88,6 @@ spec:
 			      exclusionPattern: '**/test*'
 			)
 			
-                    '''
                  } 
             }   
         }
