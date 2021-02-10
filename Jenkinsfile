@@ -111,6 +111,11 @@ spec:
             }
         }
 	
+	stage('Create Temp Branch') {
+		echo "Create temp branch for cloud"
+		
+	}
+	    
 	stage('Deploy') {
 		when { anyOf { branch 'develop'; branch 'release*' } }
             		steps {
