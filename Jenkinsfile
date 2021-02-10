@@ -123,7 +123,13 @@ spec:
 		parallel {
 			stage('Smoke Test') {
 				steps {
-					echo "I am executing Smoke Test on target dev environment post deployment"
+					
+					script {
+						propfile = readProperties(file: './devops.properties')
+						println("SmokeTest:" + propfile['smoke_test'])
+						println("reading properties ...")
+						if (propfile['smoke_test'] == "true") {
+							echo "I am executing Smoke Test on target dev environment post deployment"
 				
 				/*RESP=`curl -X GET "${bamboo.uri}/RequestsRunning" -H "accept: application/xml" -H "authorization: bearer lR0AA2qfq7v9Ry96vDAgqcer1GPVd5yStmv1_aJVFS43rk06EytB7WsS0_owoiXIgpOXmZVEfkY4ST0JwHtRBk7RH0QRaldWtQT8udC0VdimdGx38RddY2sGaeeF0t9Aflr5rh1Jc_EUfkNK8YrKVxQ6kxB05aCe46CD2fkognv7TiJATmht-ycUjEsd_oy8jH5EK9fmn9eL-wXavNTQcEdsUmFm3-2r3IJDzMK7XCa74qu353yOKLvVyZ1yYQBnc1_fY5GS1BDrFLUZprxpAS30lGEu-d_JTTOQ989UJtIEB3cZzDkIQzeqdYBGCsiDdjdHo2DC1FK2kVPyBITTbQ"`
 				echo "The response for current execution status is: $RESP"
@@ -159,6 +165,8 @@ spec:
 				exit
 				fi
 				exit */
+				}
+				}
 				}
 			}
 			stage('Security Test') {
