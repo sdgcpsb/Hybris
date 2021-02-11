@@ -34,7 +34,7 @@ spec:
                         #!/bin/bash
                         java -version
                         pwd
-			
+			ps -ef | grep java
 			cd /app/sapjvm8
 			ls
                         
@@ -45,6 +45,7 @@ spec:
 			ls
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
+			java -version
 			#ant addonuninstall -Daddonnames=assistedservicestorefront,smarteditaddon,captchaaddon,profiletagaddon -DaddonStorefront.yacceleratorstorefront=signetstorefront
 			#ant addoninstall -Daddonnames=assistedservicestorefront,smarteditaddon,captchaaddon,profiletagaddon -DaddonStorefront.yacceleratorstorefront=signetstorefront
                         ant customize clean build -Dinput.template=develop
