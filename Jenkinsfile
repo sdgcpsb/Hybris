@@ -115,7 +115,10 @@ spec:
         }
 	
 	stage('Create Temp Branch') {
-		echo "Create temp branch for cloud"
+		
+		steps {
+			echo "Create temp branch for cloud"
+		}
 		
 	}
 	    
