@@ -34,6 +34,9 @@ spec:
                         #!/bin/bash
                         java -version
                         pwd
+			
+			cd /app/sapjvm8
+			ls
                         
                         mkdir -p /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 			
