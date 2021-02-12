@@ -57,7 +57,7 @@ spec:
                     '''
 		    echo "Performing npm build..."
 		    
-		    nodejs(nodeJSInstallationName: 'Node') {
+		    //nodejs(nodeJSInstallationName: 'Node') {
 			sh '''
 				cd /$WORKSPACE/bin/custom/training/trainingstorefront/web/
 				pwd
@@ -69,7 +69,7 @@ spec:
 				grunt
 		    		
 			'''
-		    }
+		   // }
 		   
                  } 
             }   
@@ -80,7 +80,8 @@ spec:
 		container('hybris') {
 
                     sh '''
-
+			export JAVA_HOME=/app/sapjvm8/sapjvm_8/
+			
                         cd /hybris-commerce-suite/hybris/bin/platform 
                         . ./setantenv.sh
                         ant unittests
