@@ -51,8 +51,6 @@ spec:
 			#ant addoninstall -Daddonnames=assistedservicestorefront,smarteditaddon,captchaaddon,profiletagaddon -DaddonStorefront.yacceleratorstorefront=signetstorefront
                         ant customize clean build -Dinput.template=develop
 			ant production -Dproduction.legacy.mode=true -Dproduction.include.tomcat=true
-			
-			
             		
                     '''
 		    echo "Performing npm build..."
@@ -134,7 +132,8 @@ spec:
 					export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
 					./sapccm --help
 					
-					/*sapccm config set auth-credentials {TOKEN_VALUE}
+					/*
+					  sapccm config set auth-credentials {TOKEN_VALUE}
 					  echo "Create a Build"
 					  sapccm build create –application-code=commerce-cloud  --branch=BRANCH_NAME –name=BUILD_NAME –no-wait –subscription-code= SUBSCRIPTION_CODE
 					  
@@ -145,7 +144,8 @@ spec:
 					  sapccm deployment create –build-code=BUILD_CODE  --subscription-code=SUBSCRIPTION_CODE  --database-update-mode=NONE/UPDATE/INITIALIZE  --environment-code=d1/s1/p1  --strategy=CREATE/ROLLING_UPDATE  --subscriptioni-code=SUBSCRIPTION_CODE
 
 					  echo "Check Deployment" 
-					  sapccm deployment list –subscription-code=SUBSCRIPTION_CODE */
+					  sapccm deployment list –subscription-code=SUBSCRIPTION_CODE 
+					*/
 					
 					'''
 				}
@@ -164,43 +164,43 @@ spec:
 						if (propfile['smoke_test'] == "true") {
 							echo "I am executing Smoke Test on target dev environment post deployment"
 				
-				/*RESP=`curl -X GET "${bamboo.uri}/RequestsRunning" -H "accept: application/xml" -H "authorization: bearer lR0AA2qfq7v9Ry96vDAgqcer1GPVd5yStmv1_aJVFS43rk06EytB7WsS0_owoiXIgpOXmZVEfkY4ST0JwHtRBk7RH0QRaldWtQT8udC0VdimdGx38RddY2sGaeeF0t9Aflr5rh1Jc_EUfkNK8YrKVxQ6kxB05aCe46CD2fkognv7TiJATmht-ycUjEsd_oy8jH5EK9fmn9eL-wXavNTQcEdsUmFm3-2r3IJDzMK7XCa74qu353yOKLvVyZ1yYQBnc1_fY5GS1BDrFLUZprxpAS30lGEu-d_JTTOQ989UJtIEB3cZzDkIQzeqdYBGCsiDdjdHo2DC1FK2kVPyBITTbQ"`
-				echo "The response for current execution status is: $RESP"
-				if [ "$RESP" != "[]" ];
-				then
-				echo "There is a test executing currently in Worksoft. Hence, not proceeding with the execution of Worksoft test cases."
-				exit 1
-				else
-				echo "There are no tests executing right now. Hence, proceeding with Worksoft test execution"
-				fi
-				# To abort the request before attempting to re-run, uncomment and run below line.
-				# abort=$(curl -X PUT -H "Authorization: Bearer $token" -d "" -H "id: ${bamboo.RequestID}" ${bamboo.uri}/Request/${bamboo.RequestID}/abort/)
-				guid=$(curl -X PUT -H "Authorization: Bearer $token" -d "" -H "parameters: {TestEnv}{${bamboo.stage_name}}" -H "id: ${bamboo.RequestID}" ${bamboo.uri}/ExecuteRequest/ | tr -d \")
-				echo "The GUID is: $guid"
-				status=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/ | awk -F':' '{print $2}' | tr -d \" | tr -d \})
-				echo "The status is: $status"
-				while [[ $status != *"Completed"* ]]
-				do
-				status=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/ | awk -F':' '{print $2}' | tr -d \" | tr -d \})
-				echo "The status is: $status"
-				sleep 15
-				done
-				status=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/)
-				echo "The status is: $status"
-				execstatus=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/ | awk -F':' '{print $3}' | tr -d \" | tr -d \})
-				echo "The exec status is: $execstatus"
-				if [[ $execstatus != *Passed* ]];
-				then
-				echo "Failed"
-				exit 1
-				else
-				echo "Passed"
-				exit
-				fi
-				exit */
+						/*RESP=`curl -X GET "${bamboo.uri}/RequestsRunning" -H "accept: application/xml" -H "authorization: bearer lR0AA2qfq7v9Ry96vDAgqcer1GPVd5yStmv1_aJVFS43rk06EytB7WsS0_owoiXIgpOXmZVEfkY4ST0JwHtRBk7RH0QRaldWtQT8udC0VdimdGx38RddY2sGaeeF0t9Aflr5rh1Jc_EUfkNK8YrKVxQ6kxB05aCe46CD2fkognv7TiJATmht-ycUjEsd_oy8jH5EK9fmn9eL-wXavNTQcEdsUmFm3-2r3IJDzMK7XCa74qu353yOKLvVyZ1yYQBnc1_fY5GS1BDrFLUZprxpAS30lGEu-d_JTTOQ989UJtIEB3cZzDkIQzeqdYBGCsiDdjdHo2DC1FK2kVPyBITTbQ"`
+						echo "The response for current execution status is: $RESP"
+						if [ "$RESP" != "[]" ];
+						then
+						echo "There is a test executing currently in Worksoft. Hence, not proceeding with the execution of Worksoft test cases."
+						exit 1
+						else
+						echo "There are no tests executing right now. Hence, proceeding with Worksoft test execution"
+						fi
+						# To abort the request before attempting to re-run, uncomment and run below line.
+						# abort=$(curl -X PUT -H "Authorization: Bearer $token" -d "" -H "id: ${bamboo.RequestID}" ${bamboo.uri}/Request/${bamboo.RequestID}/abort/)
+						guid=$(curl -X PUT -H "Authorization: Bearer $token" -d "" -H "parameters: {TestEnv}{${bamboo.stage_name}}" -H "id: ${bamboo.RequestID}" ${bamboo.uri}/ExecuteRequest/ | tr -d \")
+						echo "The GUID is: $guid"
+						status=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/ | awk -F':' '{print $2}' | tr -d \" | tr -d \})
+						echo "The status is: $status"
+						while [[ $status != *"Completed"* ]]
+						do
+						status=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/ | awk -F':' '{print $2}' | tr -d \" | tr -d \})
+						echo "The status is: $status"
+						sleep 15
+						done
+						status=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/)
+						echo "The status is: $status"
+						execstatus=$(curl -X GET -H "Authorization: Bearer $token" -d "" -H "APIRequestID: $guid" ${bamboo.uri}/ExecutionStatus/ | awk -F':' '{print $3}' | tr -d \" | tr -d \})
+						echo "The exec status is: $execstatus"
+						if [[ $execstatus != *Passed* ]];
+						then
+						echo "Failed"
+						exit 1
+						else
+						echo "Passed"
+						exit
+						fi
+						exit */
+					}
 				}
-				}
-				}
+			}
 			}
 			stage('Security Test') {
 				steps {
