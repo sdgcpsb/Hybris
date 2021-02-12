@@ -7,7 +7,7 @@ kind: Pod
 spec:
   containers:
   - name: hybris
-    image: signet/hybris-ant:6.6.0.15_3.0.3-UAT
+    image: signet/hybris-ant:1811_21-V8
     command: 
     - /bin/bash
     tty: true	
