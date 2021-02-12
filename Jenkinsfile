@@ -134,6 +134,19 @@ spec:
 					export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
 					./sapccm --help
 					
+					/*sapccm config set auth-credentials {TOKEN_VALUE}
+					  echo "Create a Build"
+					  sapccm build create –application-code=commerce-cloud  --branch=BRANCH_NAME –name=BUILD_NAME –no-wait –subscription-code= SUBSCRIPTION_CODE
+					  
+					  echo "Check a Build"
+					  sapccm  build show –subscription-code=SUBSCRIPTION_CODE  --build-code=BUILD_CODE
+
+					  echo "Create a Deployment"
+					  sapccm deployment create –build-code=BUILD_CODE  --subscription-code=SUBSCRIPTION_CODE  --database-update-mode=NONE/UPDATE/INITIALIZE  --environment-code=d1/s1/p1  --strategy=CREATE/ROLLING_UPDATE  --subscriptioni-code=SUBSCRIPTION_CODE
+
+					  echo "Check Deployment" 
+					  sapccm deployment list –subscription-code=SUBSCRIPTION_CODE */
+					
 					'''
 				}
             		}
