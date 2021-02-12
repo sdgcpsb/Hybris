@@ -56,21 +56,17 @@ spec:
             		
                     '''
 		    echo "Performing npm build..."
-		    
-		    //nodejs(nodeJSInstallationName: 'Node') {
-			sh '''
-				cd /$WORKSPACE/bin/custom/training/trainingstorefront/web/
-				pwd
-                   		npm install -g grunt-cli
-				npm install grunt --save-dev
-				npm install grunt-contrib-less --save-dev
-				npm install grunt-contrib-watch --save-dev
-				npm install grunt-sync --save-dev
-				grunt
+		    sh '''
+			cd /$WORKSPACE/bin/custom/training/trainingstorefront/web/
+			pwd
+                   	npm install -g grunt-cli
+			npm install grunt --save-dev
+			npm install grunt-contrib-less --save-dev
+			npm install grunt-contrib-watch --save-dev
+			npm install grunt-sync --save-dev
+			grunt
 		    		
-			'''
-		   // }
-		   
+		    '''	   
                  } 
             }   
         }
@@ -128,8 +124,10 @@ spec:
 	stage('Deploy') {
 		when { anyOf { branch 'develop'; branch 'release*' } }
             		steps {
-				echo "I am executing Deploy to target dev environment."
-				echo "Work in progress"
+				container('hybris') {
+					echo "I am executing Deploy to target dev environment."
+					sapccm --help
+				}
             		}
         	}
 
