@@ -132,7 +132,7 @@ spec:
 					
 					cd /app/sap_cli/bin/
 					export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
-					./sapccm --help
+					-sapccm --help
 					
 					'''
 				}
