@@ -129,6 +129,7 @@ spec:
 					sh '''
 					
 					cd /app/sap_cli/bin/sapccm
+					echo $JAVA_HOME
 					pwd
 					ls
 					sapccm
