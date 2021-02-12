@@ -131,8 +131,7 @@ spec:
 					sh '''
 					
 					cd /app/sap_cli/bin/
-					echo $JAVA_HOME
-					echo $JAVA_VERSION
+					export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
 					sapccm --help
 					
 					'''
