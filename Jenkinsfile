@@ -126,7 +126,12 @@ spec:
             		steps {
 				container('hybris') {
 					echo "I am executing Deploy to target dev environment."
-					sh 'sapccm --help'
+					sh '''
+					
+					cd /app/sap_cli/bin
+					sapccm --help
+					
+					'''
 				}
             		}
         	}
