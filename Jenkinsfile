@@ -132,6 +132,9 @@ spec:
 					export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
 					./sapccm --help
 					
+					
+					'''
+					
 					/*
 					  sapccm config set auth-credentials {TOKEN_VALUE}
 					  echo "Create a Build"
@@ -147,7 +150,6 @@ spec:
 					  sapccm deployment list –subscription-code=SUBSCRIPTION_CODE 
 					*/
 					
-					'''
 				}
             		}
         	}
