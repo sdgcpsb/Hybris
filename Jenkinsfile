@@ -76,6 +76,7 @@ spec:
 		container('hybris') {
 
                     sh '''
+		    	
 			export JAVA_HOME=/app/sapjvm8/sapjvm_8/
 			
                         cd /hybris-commerce-suite/hybris/bin/platform 
@@ -125,11 +126,14 @@ spec:
 		when { anyOf { branch 'develop'; branch 'release*' } }
             		steps {
 				container('hybris') {
+					
 					echo "I am executing Deploy to target dev environment."
 					sh '''
 					
 					cd /app/sap_cli/bin/
-					sudo sapccm --help
+					echo $JAVA_HOME
+					echo $JAVA_VERSION
+					sapccm --help
 					
 					'''
 				}
