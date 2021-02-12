@@ -32,6 +32,7 @@ spec:
 			
                     sh '''
                         #!/bin/bash
+			export JAVA_HOME=/app/sapjvm8/sapjvm_8/
                         java -version
                         pwd
 			ps -ef | grep java
