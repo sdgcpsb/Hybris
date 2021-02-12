@@ -128,7 +128,8 @@ spec:
 					echo "I am executing Deploy to target dev environment."
 					sh '''
 					
-					cd /app/sap_cli/bin/sapccm
+					cd /app
+					ls
 					echo $JAVA_HOME
 					pwd
 					ls
