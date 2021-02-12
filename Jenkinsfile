@@ -126,12 +126,12 @@ spec:
             		steps {
 				container('hybris') {
 					echo "I am executing Deploy to target dev environment."
-					sapccm --help
+					sh 'sapccm --help'
 				}
             		}
         	}
 
-		stage('Post Deploy Tests') {
+	stage('Post Deploy Tests') {
 		parallel {
 			stage('Smoke Test') {
 				steps {
