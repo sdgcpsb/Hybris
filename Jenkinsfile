@@ -129,7 +129,7 @@ spec:
 					sh '''
 					
 					cd /app/sap_cli/bin
-					sapccm --help
+					sapccm
 					
 					'''
 				}
