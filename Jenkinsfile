@@ -35,6 +35,8 @@ spec:
                         			#!/bin/bash
 						export JAVA_HOME=/app/sapjvm8/sapjvm_8/
                         			java -version
+                        			propfile = readProperties(file: './devops.properties')
+						
                         			pwd
 						cd /
 						ls 
@@ -43,7 +45,6 @@ spec:
 						ps -ef | grep java
 						cd /app/sapjvm8
 						ls
-                        
                         			mkdir -p /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 			
                         			cp -R /$WORKSPACE/bin/custom/training/trainingstorefront/ /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
@@ -163,9 +164,7 @@ spec:
 					steps {
 					
 						script {
-							propfile = readProperties(file: './devops.properties')
-							println("SmokeTest:" + propfile['smoke_test'])
-							println("reading properties ...")
+							
 							if (propfile['smoke_test'] == "true") {
 								echo "I am executing Smoke Test on target dev environment post deployment"
 				
