@@ -1,3 +1,4 @@
+propfile = readProperties(file: './devops.properties')
 pipeline {
         agent {
         kubernetes {
@@ -23,10 +24,6 @@ spec:
         }
     }  
 
-	environment {
-		
-		propfile = readProperties(file: './devops.properties')
-	}
 		
     	stages {
         
@@ -130,7 +127,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression {BRANCH_NAME == 'origin/dev' || BRANCH_NAME == 'origin/release*'} }
+			when { expression {BRANCH_NAME == 'dev' || BRANCH_NAME == 'release*'} }
             			steps {
 					container('hybris') {
 					
@@ -164,7 +161,7 @@ spec:
         		}
 
 		stage('Post Deploy Tests') {
-			when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release*'} }
+			when { expression {BRANCH_NAME == 'dev' || BRANCH_NAME == 'release*'} }
 			parallel {
 				stage('Smoke Test') {
 					steps {
@@ -224,13 +221,13 @@ spec:
   	}
   	post {
 	  
-		always {
+		/*always {
 			script {
 				if (propfile['javadoc'] == "true") {
 					javadoc(javadocDir: "/home/jenkins/agent/workspace/${env.JOB_NAME}/target/site/apidocs", keepAll: true)
         			}
 		  	}
-	  	}
+	  	}*/
 	  
         	failure {
             	/*mail bcc: '', 
