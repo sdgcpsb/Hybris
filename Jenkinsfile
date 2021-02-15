@@ -141,11 +141,11 @@ environment{
 	}
 	    
 	stage('Deploy') {
-		when { anyOf { branch 'develop'; branch 'release*' } }
+		when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release'|| propfile['feature_deploy'] == "true"} }
             		steps {
 				container('hybris') {
 					
-					echo "I am executing Deploy to target dev environment."
+					echo "I am executing Deploy to target environment."
 					sh '''
 					
 					cd /app/sap_cli/bin/
@@ -175,6 +175,7 @@ environment{
         	}
 
 	stage('Post Deploy Tests') {
+		when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release'|| propfile['feature_deploy'] == "true"} }
 		parallel {
 			stage('Smoke Test') {
 				steps {
