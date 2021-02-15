@@ -126,6 +126,7 @@ spec:
 	}
 	    
 	stage('Deploy') {
+		propfile = readProperties(file: './devops.properties')
 		when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release*'|| propfile['feature_deploy'] == "true"} }
             		steps {
 				container('hybris') {
