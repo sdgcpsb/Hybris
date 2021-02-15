@@ -23,7 +23,12 @@ spec:
         }
     }  
 
+	environment{
 		
+		CCV2CMD="/app/sap_cli/bin"
+		ccv2_env="d1"
+		ccv2_temp_branch="ccv2_deploy_${ccv2_env}"
+	}
     	stages {
         
 		stage('Build') {
@@ -135,7 +140,7 @@ spec:
 					
 					echo "I am executing Deploy to target environment."
 					sh '''	
-					cd /app/sap_cli/bin/
+					cd $CCV2CMD
 					export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
 					./sapccm --help
 					'''
