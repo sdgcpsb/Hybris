@@ -30,13 +30,15 @@ spec:
             		steps {
 			
 				container('hybris') {
+					script{
+						propfile = readProperties(file: './devops.properties')
+					}
 			
                     			sh '''
                         			#!/bin/bash
 						export JAVA_HOME=/app/sapjvm8/sapjvm_8/
                         			java -version
-                        			propfile = readProperties(file: './devops.properties')
-						
+                        			
                         			pwd
 						cd /
 						ls 
