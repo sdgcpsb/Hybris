@@ -126,7 +126,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release' }}
+			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' } }
             		steps {
 				container('hybris') {
 					
