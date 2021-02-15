@@ -130,7 +130,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release*'|| propfile['feature_deploy'] == "true"} }
+			when { expression {BRANCH_NAME == 'origin/dev' || BRANCH_NAME == 'origin/release*'|| propfile['feature_deploy'] == "true"} }
             			steps {
 					container('hybris') {
 					
