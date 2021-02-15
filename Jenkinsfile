@@ -126,7 +126,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression {branch 'dev' || branch 'release*'} }
+			when { expression {GIT_BRANCH == 'dev' || GIT_BRANCH == 'release*'} }
             			steps {
 					container('hybris') {
 					
@@ -160,7 +160,7 @@ spec:
         		}
 
 		stage('Post Deploy Tests') {
-			when { expression {branch 'dev' || branch 'release*'} }
+			when { expression {GIT_BRANCH == 'dev' || GIT_BRANCH == 'release*'} }
 			parallel {
 				stage('Smoke Test') {
 					steps {
