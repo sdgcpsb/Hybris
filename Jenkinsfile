@@ -220,13 +220,13 @@ spec:
   	}
   	post {
 	  
-		/*always {
+		always {
 			script {
-				if (propfile['javadoc'] == "true") {
-					javadoc(javadocDir: "/home/jenkins/agent/workspace/${env.JOB_NAME}/target/site/apidocs", keepAll: true)
-        			}
+				//if (propfile['javadoc'] == "true") {
+					javadoc(javadocDir: "/$WORKSPACE/target/site/apidocs", keepAll: true)
+        			//}
 		  	}
-	  	}*/
+	  	}
 	  
         	failure {
             	/*mail bcc: '', 
