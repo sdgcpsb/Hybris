@@ -43,17 +43,7 @@ spec:
                         			#!/bin/bash
 						export JAVA_HOME=/app/sapjvm8/sapjvm_8/
                         			java -version
-                        			
-                        			pwd
-						cd /
-						ls 
-						cd /hybris-commerce-suite/
-						ls
-						ps -ef | grep java
-						cd /app/sapjvm8
-						ls
                         			mkdir -p /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
-			
                         			cp -R /$WORKSPACE/bin/custom/training/trainingstorefront/ /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 						cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 						ls
