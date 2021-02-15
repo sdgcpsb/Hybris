@@ -132,12 +132,9 @@ spec:
 					
 						echo "I am executing Deploy to target environment."
 						sh '''	
-					
-							cd /app/sap_cli/bin/
-							export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
-							./sapccm --help
-					
-					
+						cd /app/sap_cli/bin/
+						export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
+						./sapccm --help
 						'''
 					
 						/*
