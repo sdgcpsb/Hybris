@@ -24,7 +24,7 @@ spec:
     }  
 
 	environment{
-		
+		scannerHome = tool 'Sonarqube'
 		CCV2CMD="/app/sap_cli/bin"
 		ccv2_env="d1"
 		ccv2_temp_branch="ccv2_deploy_${ccv2_env}"
@@ -108,9 +108,6 @@ spec:
         	}
 		
 		stage('Code Quality') {
-            		environment {
-                		scannerHome = tool 'Sonarqube'
-            		}
             		steps {
 				container('maven') {
                 			withSonarQubeEnv(installationName:'Sonarqube') {
