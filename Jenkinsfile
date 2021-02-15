@@ -126,7 +126,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression { GIT_BRANCH == 'origin/dev' || GIT_BRANCH == 'origin/release' } }
+			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' } }
             		steps {
 				container('hybris') {
 					
@@ -157,7 +157,7 @@ spec:
         	}
 
 		stage('Post Deploy Tests') {
-			when { expression { GIT_BRANCH == 'origin/dev' || GIT_BRANCH == 'origin/release' } }
+			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' } }
 			parallel {
 				stage('Smoke Test') {
 					steps {
