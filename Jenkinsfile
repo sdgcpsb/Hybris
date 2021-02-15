@@ -220,7 +220,7 @@ spec:
 		always {
 			script {
 				//if (propfile['javadoc'] == "true") {
-					javadoc(javadocDir: "/$WORKSPACE/target/site/apidocs", keepAll: true)
+					javadoc(javadocDir: "/$WORKSPACE/", keepAll: true)
         			//}
 		  	}
 	  	}
