@@ -129,7 +129,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' } }
+			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' || propfile['feature_deploy'] == "true" } }
             		steps {
 				container('hybris') {
 					
@@ -160,7 +160,7 @@ spec:
         	}
 
 		stage('Post Deploy Tests') {
-			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' } }
+			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' || propfile['feature_deploy'] == "true"} }
 			parallel {
 				stage('Smoke Test') {
 					steps {
@@ -220,9 +220,9 @@ spec:
 	  
 		always {
 			script {
-				//if (propfile['javadoc'] == "true") {
+				if (propfile['javadoc'] == "true") {
 					javadoc(javadocDir: "/$WORKSPACE", keepAll: true)
-        			//}
+        			}
 		  	}
 	  	}
 	  
