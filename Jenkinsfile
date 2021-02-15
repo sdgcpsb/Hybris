@@ -30,6 +30,10 @@ spec:
             		steps {
 			
 				container('hybris') {
+					
+					script{
+						propfile = readProperties(file: './devops.properties')
+					}
 			
                     			sh '''
                         			#!/bin/bash
@@ -126,7 +130,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' } }
+			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' || propfile['feature_deploy'] == "true" } }
             		steps {
 				container('hybris') {
 					
@@ -157,15 +161,13 @@ spec:
         	}
 
 		stage('Post Deploy Tests') {
-			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' } }
+			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' || propfile['feature_deploy'] == "true"} }
 			parallel {
 				stage('Smoke Test') {
 					steps {
 					
 						script {
-							propfile = readProperties(file: './devops.properties')
-							println("SmokeTest:" + propfile['smoke_test'])
-							println("reading properties ...")
+							
 							if (propfile['smoke_test'] == "true") {
 								echo "I am executing Smoke Test on target dev environment post deployment"
 				
@@ -219,9 +221,9 @@ spec:
 	  
 		always {
 			script {
-				//if (propfile['javadoc'] == "true") {
+				if (propfile['javadoc'] == "true") {
 					javadoc(javadocDir: "/$WORKSPACE", keepAll: true)
-        			//}
+        			}
 		  	}
 	  	}
 	  
