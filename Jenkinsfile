@@ -1,4 +1,3 @@
-propfile = readProperties(file: './devops.properties')
 pipeline {
         agent {
         kubernetes {
