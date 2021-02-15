@@ -44,7 +44,9 @@ spec:
                         cp -R /$WORKSPACE/bin/custom/training/trainingstorefront/ /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 			cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 			ls
-                        cd /hybris-commerce-suite/hybris/bin/platform 
+                        cd /hybris-commerce-suite/hybris/bin/platform
+			
+			cat /hybris-commerce-suite/hybris/bin/platform/build.xml
                         . ./setantenv.sh
 			java -version
 			#ant addonuninstall -Daddonnames=assistedservicestorefront,smarteditaddon,captchaaddon,profiletagaddon -DaddonStorefront.yacceleratorstorefront=signetstorefront
