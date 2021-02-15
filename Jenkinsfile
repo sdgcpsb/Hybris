@@ -126,7 +126,7 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression {GIT_BRANCH == 'origin/dev' || GIT_BRANCH == regex(/release*) } }
+			when { expression { GIT_BRANCH == 'origin/dev' || GIT_BRANCH == regex("release*") } }
             		steps {
 				container('hybris') {
 					
@@ -137,7 +137,7 @@ spec:
 					./sapccm --help
 					'''
 					
-						/*
+					/*
 					  	sapccm config set auth-credentials {TOKEN_VALUE}
 					  	echo "Create a Build"
 					  	sapccm build create –application-code=commerce-cloud  --branch=BRANCH_NAME –name=BUILD_NAME –no-wait –subscription-code= SUBSCRIPTION_CODE
@@ -150,7 +150,7 @@ spec:
 
 					  	echo "Check Deployment" 
 					  	sapccm deployment list –subscription-code=SUBSCRIPTION_CODE 
-						*/
+					*/
 					
 				}
             		}
