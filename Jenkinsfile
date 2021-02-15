@@ -126,16 +126,16 @@ spec:
 		}
 	    
 		stage('Deploy') {
-			when { expression {GIT_BRANCH == 'origin/dev' || GIT_BRANCH == regex(/release*)} }
-            			steps {
-					container('hybris') {
+			when { expression {GIT_BRANCH == 'origin/dev' || GIT_BRANCH == regex(/release*) } }
+            		steps {
+				container('hybris') {
 					
-						echo "I am executing Deploy to target environment."
-						sh '''	
-						cd /app/sap_cli/bin/
-						export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
-						./sapccm --help
-						'''
+					echo "I am executing Deploy to target environment."
+					sh '''	
+					cd /app/sap_cli/bin/
+					export JAVA_HOME=/app/sapmachine-jdk-11.0.10/
+					./sapccm --help
+					'''
 					
 						/*
 					  	sapccm config set auth-credentials {TOKEN_VALUE}
@@ -152,9 +152,9 @@ spec:
 					  	sapccm deployment list –subscription-code=SUBSCRIPTION_CODE 
 						*/
 					
-					}
-            			}
-        		}
+				}
+            		}
+        	}
 
 		stage('Post Deploy Tests') {
 			when { expression {GIT_BRANCH == 'origin/dev' || GIT_BRANCH == regex(/release*)} }
