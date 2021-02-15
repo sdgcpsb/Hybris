@@ -22,7 +22,23 @@ spec:
             defaultContainer 'jnlp'
         }
     }  
-
+    
+environment{
+	
+	HYBRIS_PACKAGES="/app/sap_hybris_1811"
+	HYBRIS_WS=""
+	HYBRIS_HOME="$HYBRIS_WS/hybris/ecomm"
+	HYBRIS_BRANCH="${BRANCH_NAME}"
+	CCV2CMD="/app/sap_cli/bin/"
+	STOREFRONT=ecomm/hybris/bin/custom/signet/signetstorefront
+	CPLD_STOREFRONT=${HYBRIS_WS}/hybris/${STOREFRONT}
+	ccv2_env=d1
+	CCV2_STOREFRONT=${HYBRIS_WS}/ccv2_deploy/${STOREFRONT}
+	//ccv2_sub=5821ef7ca7274a52bc94b7d9922977fb
+	ccv2_temp_branch="ccv2_deploy_${ccv2_env}"
+	
+}
+		
     stages {
         
 	stage('Build') {
@@ -35,6 +51,10 @@ spec:
 			export JAVA_HOME=/app/sapjvm8/sapjvm_8/
                         java -version
                         pwd
+			cd /
+			ls 
+			cd /hybris-commerce-suite/
+			ls
 			ps -ef | grep java
 			cd /app/sapjvm8
 			ls
