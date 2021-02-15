@@ -126,7 +126,7 @@ spec:
 	}
 	    
 	stage('Deploy') {
-		when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release'|| propfile['feature_deploy'] == "true"} }
+		when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release*'|| propfile['feature_deploy'] == "true"} }
             		steps {
 				container('hybris') {
 					
@@ -160,7 +160,7 @@ spec:
         	}
 
 	stage('Post Deploy Tests') {
-		when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release'|| propfile['feature_deploy'] == "true"} }
+		when { expression {env.GIT_BRANCH == 'origin/dev' || env.GIT_BRANCH == 'origin/release*'|| propfile['feature_deploy'] == "true"} }
 		parallel {
 			stage('Smoke Test') {
 				steps {
@@ -219,6 +219,15 @@ spec:
 	}    
   }
   post {
+	  
+	always {
+			script {
+				if (propfile['javadoc'] == "true") {
+					javadoc(javadocDir: "/home/jenkins/agent/workspace/${env.JOB_NAME}/target/site/apidocs", keepAll: true)
+        			}
+		  	}
+	  	}
+	  
         failure {
             /*mail bcc: '', 
             	 body: "<b>Example</b><br>\n<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", 
