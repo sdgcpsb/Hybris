@@ -79,7 +79,7 @@ spec:
 			steps {
 				echo BRANCH_NAME 
 				sh '''
-				git remote set-url origin git@github.com:sdgcpsb/Hybris.git
+				git remote set-url origin https://github.com/sdgcpsb/Hybris.git
 				git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER"
 				git push -u origin "temp_$BRANCH_NAME_$BUILD_NUMBER"
 				'''
