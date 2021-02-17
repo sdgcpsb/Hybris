@@ -78,11 +78,12 @@ spec:
 		stage('Create Temp Branch'){
 			steps {
 				echo BRANCH_NAME 
-				sh '''
-				git remote -v
-				git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER"
-				git push origin "temp_$BRANCH_NAME_$BUILD_NUMBER"
-				'''
+				
+				sh ' git remote -v'
+				sh 'git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER" '
+				
+				sh ' git push origin "temp_$BRANCH_NAME_$BUILD_NUMBER" '
+				
 			}
 		}
 		
