@@ -115,6 +115,13 @@ spec:
             		}
         	}
 	
+		
+		stage('Create Temp Branch'){
+			steps {
+				echo $BRANCH_NAME 
+				git checkout -b "temp_$BRANCH_NAME"
+			}
+		}
 	    
 		stage('Deploy') {
 			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' || propfile['feature_deploy'] == "true" } }
