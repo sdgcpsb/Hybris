@@ -80,6 +80,7 @@ spec:
 				echo BRANCH_NAME 
 				
 				sh ' git remote -v'
+				sh 'git branch -d "ccv2_deploy_${ccv2_env}" '
 				sh 'git push --delete https://sdgcpsb:sureshnaga1@github.com/sdgcpsb/Hybris.git "ccv2_deploy_${ccv2_env}" '
 				sh 'sleep 10'
 				sh 'git branch'
