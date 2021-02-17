@@ -67,7 +67,11 @@ spec:
 						npm install grunt-sync --save-dev
 						grunt
 		    		
-		    			'''	   
+		    			'''	
+					echo "Creating temp branch with new code from storefront"
+					sh '''
+					git remote set-url origin git@github.com:sdgcpsb/Hybris.git
+					'''
                  		} 
             		}   
         	}
@@ -112,13 +116,6 @@ spec:
             		}
         	}
 	
-		stage('Create Temp Branch') {
-		
-			steps {
-				echo "Create temp branch for cloud"
-			}
-		
-		}
 	    
 		stage('Deploy') {
 			when { expression { BRANCH_NAME == 'dev' || BRANCH_NAME == 'release' || propfile['feature_deploy'] == "true" } }
