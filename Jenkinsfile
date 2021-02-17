@@ -71,7 +71,7 @@ spec:
 					echo "Creating temp branch with new code from storefront"
 					
 					script{
-						git
+						git --help
 					}
                  		} 
             		}   
