@@ -79,8 +79,8 @@ spec:
 			steps {
 				echo BRANCH_NAME 
 				sh '''
-				git checkout -b "temp_$BRANCH_NAME"
-				git push -u origin "temp_$BRANCH_NAME"
+				git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER"
+				git push -u origin "temp_$BRANCH_NAME_$BUILD_NUMBER"
 				'''
 			}
 		}
