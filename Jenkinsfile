@@ -80,7 +80,8 @@ spec:
 				echo BRANCH_NAME 
 				
 				sh ' git remote -v'
-				sh 'git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER" '
+				sh 'git push --delete https://sdgcpsb:sureshnaga1@github.com/sdgcpsb/Hybris.git "ccv2_deploy_${ccv2_env}" '
+				sh 'git checkout -b "ccv2_deploy_${ccv2_env}" '
 				sh 'git push -u https://sdgcpsb:sureshnaga1@github.com/sdgcpsb/Hybris.git '
 				//sh ' git config remote.origin.url 'https://"sdgcpsb":"sureshnaga@123"@github.com/sdgcpsb/Hybris.git''
 				//sh 'git push origin "temp_$BRANCH_NAME_$BUILD_NUMBER"'
