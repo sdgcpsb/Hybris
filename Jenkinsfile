@@ -81,7 +81,7 @@ spec:
 				
 				sh ' git remote -v'
 				sh 'git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER" '
-				sh ' git push --set-upstream origin "temp_$BRANCH_NAME_$BUILD_NUMBER" '
+				sh ' git push --all '
 				//sh ' git push origin "temp_$BRANCH_NAME_$BUILD_NUMBER" , credentialsId: 'git_creds' '
 				
 			}
