@@ -81,8 +81,8 @@ spec:
 				
 				sh ' git remote -v'
 				sh 'git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER" '
-				sh 'git remote add origin https://sdgcpsb:{sureshnaga@123}@github.com/sdgcpsb/Hybris.git'
-				sh ' git push --all '
+				sh 'git push https://sdgcpsb:{sureshnaga@123}@github.com/sdgcpsb/Hybris.git'
+				
 				//sh ' git push origin "temp_$BRANCH_NAME_$BUILD_NUMBER" , credentialsId: 'git_creds' '
 				
 			}
