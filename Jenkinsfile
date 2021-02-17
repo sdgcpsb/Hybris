@@ -33,7 +33,7 @@ spec:
         
 		stage('Build') {
             		steps {
-			
+				git --version
 				container('hybris') {
 					script{
 						propfile = readProperties(file: './devops.properties')
@@ -71,7 +71,7 @@ spec:
 					echo "Creating temp branch with new code from storefront"
 					
 					script{
-						git --help
+						git --version
 					}
                  		} 
             		}   
