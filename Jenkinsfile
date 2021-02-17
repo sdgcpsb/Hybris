@@ -69,9 +69,9 @@ spec:
 		    		
 		    			'''	
 					echo "Creating temp branch with new code from storefront"
-					sh '''
-					git remote set-url origin git@github.com:sdgcpsb/Hybris.git
-					'''
+					
+					git
+					
                  		} 
             		}   
         	}
