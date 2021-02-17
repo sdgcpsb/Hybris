@@ -58,7 +58,7 @@ spec:
 		                    	'''
 		    			echo "Performing npm build..."
 		    			sh '''
-						cd /$WORKSPACE/bin/custom/training/trainingstorefront/web/
+						cd /hybris-commerce-suite/hybris/bin/custom/training/trainingstorefront/
 						pwd
                    				npm install -g grunt-cli
 						npm install grunt --save-dev
