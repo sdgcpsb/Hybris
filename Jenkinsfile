@@ -78,7 +78,7 @@ spec:
 		stage('Create Temp Branch'){
 			steps {
 				echo $BRANCH_NAME 
-				git --version
+				sh 'git --version'
 			}
 		}
 		
