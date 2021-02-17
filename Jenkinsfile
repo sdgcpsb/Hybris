@@ -72,9 +72,6 @@ spec:
 					
 					
                  		} 
-				script{
-						git --version
-					}
             		}   
         	}
 		
