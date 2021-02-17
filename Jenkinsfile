@@ -70,8 +70,9 @@ spec:
 		    			'''	
 					echo "Creating temp branch with new code from storefront"
 					
-					git
-					
+					script{
+						git
+					}
                  		} 
             		}   
         	}
