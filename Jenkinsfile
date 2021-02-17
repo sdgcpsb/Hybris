@@ -81,8 +81,8 @@ spec:
 				
 				sh ' git remote -v'
 				sh 'git checkout -b "temp_$BRANCH_NAME_$BUILD_NUMBER" '
-				//sh 'git push https://"sdgcpsb":"sureshnaga@123"@github.com/sdgcpsb/Hybris.git'
-				sh ' git config remote.origin.url 'https://${AIP_github}@github.com/sdgcpsb/Hybris}.git''
+				sh 'git push  https://"sdgcpsb":"sureshnaga@123"@github.com/sdgcpsb/Hybris.git "temp_$BRANCH_NAME_$BUILD_NUMBER" '
+				//sh ' git config remote.origin.url 'https://${AIP_github}@github.com/sdgcpsb/Hybris}.git''
 				//	sh 'git push origin "temp_$BRANCH_NAME_$BUILD_NUMBER"'
 				//sh ' git push origin "temp_$BRANCH_NAME_$BUILD_NUMBER" , credentialsId: 'git_creds' '
 				
