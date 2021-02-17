@@ -81,6 +81,7 @@ spec:
 				
 				sh ' git remote -v'
 				sh 'git push --delete https://sdgcpsb:sureshnaga1@github.com/sdgcpsb/Hybris.git "ccv2_deploy_${ccv2_env}" '
+				sh 'sleep 10'
 				sh 'git checkout -b "ccv2_deploy_${ccv2_env}" '
 				sh 'git push -u https://sdgcpsb:sureshnaga1@github.com/sdgcpsb/Hybris.git '
 				//sh ' git config remote.origin.url 'https://"sdgcpsb":"sureshnaga@123"@github.com/sdgcpsb/Hybris.git''
